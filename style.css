@@ -1,0 +1,152 @@
+/* === Add Fonts === */
+@font-face {
+  font-family: 'A4Speed';
+  src: url('font/A4SPEED-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BlackFuture';
+  src: url('font/Black Future.otf') format('opentype');
+}
+
+/* === Apply Fonts === */
+.title1 {   /* main page title */
+  font-family: 'A4Speed', sans-serif;
+  font-size: 2.5;
+  color: #111;
+  text-align: center;
+
+}
+
+.title2 {   /* section titles */
+  font-family: 'BlackFuture', sans-serif;
+  font-size: 2;
+  color: #333;
+ 
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;          /* full viewport height */
+  display: flex;
+  flex-direction: column;      /* stack content vertically */
+  background-color: #bdb9b9;
+  background: url("bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+header {
+  background: #333;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  z-index: 100000;
+}
+.hero {
+  text-align: center;
+  padding: 50px;
+  background: #f4f4f4;
+}
+#section{
+  background-color: rgba(0,0,0,1);
+
+}
+.hero-section {
+  opacity: 0.8;
+  background-color: #111; /* gradient colors */
+  color: rgb(4, 4, 4);              /* make text visible */
+  min-height: 400px;         /* give section height */
+  display: flex;             /* center text */
+  align-items: center;       /* vertical center */
+  justify-content: center;   /* horizontal center */
+}
+
+.sec {
+  background: 
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), /* dark overlay */
+    url("img/field.jpg") no-repeat center center;
+  background-size: cover;
+  min-height: 400px;
+  position: static;
+  
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;  /* white text stands out */
+  text-shadow: 1px 1px 5px rgba(0,0,0,1);
+}
+.hero .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.product {
+  border: 1px solid #ccc;
+  padding: 15px;
+  text-align: center;
+}
+.search-bar {
+  text-align: center;
+  padding: 20px;
+}
+.search-bar input {
+  width: 50%;
+  padding: 10px;
+}
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;   /* keeps it fixed */
+  bottom: 0;         /* sticks to bottom */
+  left: 0;
+  width: 100%;       /* full width */
+   /* stays above other content */
+}
+
+
+/* Navbar links hover effect */
+.navbar-nav .nav-link {
+  transition: all 0.3s ease; /* smooth transition */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffd700 !important; /* gold text on hover */
+  background-color: rgba(255, 255, 255, 0.1); /* subtle light overlay */
+  border-radius: 5px; /* rounded edges for effect */
+}
+.dropdown-menu .dropdown-item {
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* subtle highlight */
+  color: #ffd700 !important; /* gold text */
+}
+
+#container3D{
+position:absolute;
+z-index: -1;
+}
+#footer{
+  position: fixed;
+  z-index: 1000;
+}
+
