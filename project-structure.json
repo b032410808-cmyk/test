@@ -1,0 +1,34 @@
+{
+  "project": {
+    "folders": [
+      "font",
+      "img",
+      "models",
+      "vedio"
+    ],
+    "files": [
+      ".gitattributes",
+      "cap.php",
+      "corporate.php",
+      "footer.php",
+      "header.php",
+      "index.html",
+      "jacket.php",
+      "main.js",
+      "muslimah.php",
+      "pantscategories.php",
+      "polocollar.php",
+      "README.md",
+      "retrocollar.php",
+      "roundneck.php",
+      "services.php",
+      "shirtcategories.php",
+      "shorts.php",
+      "sleeveless.php",
+      "sock.php",
+      "style.css",
+      "tracksuit.php",
+      "vneck.php"
+    ]
+  }
+}
