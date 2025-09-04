@@ -70,10 +70,11 @@
     </div>
   </div>
 </nav>
+
 <br><br><br>
 <div class="text-center my-4">
 
- <h1 class=" title2" style="font-size: 70px;">RoundNeck</h1>
+ <h1 class=" title2" style="font-size: 70px;">3RD QUARTER</h1>
 </div>
 
 <div class="container my-4">
@@ -85,12 +86,34 @@
         <div class="text-center my-3">
           <a href="#" class="btn btn-dark btn-lg w-50 whatsBtn">Buy now</a>
         </div>
-        <img height="480" src="img/shirt/RNECK BLACK-01.jpg" 
+        <script>
+  document.querySelectorAll('.whatsBtn').forEach(button => {
+    button.addEventListener('click', function () {
+      const phone = '60175156872';  
+      const text  = encodeURIComponent(this.dataset.message || ' 3RD QUARTER ');
+
+      // Deep links
+      const appUrl = `whatsapp://send?phone=${phone}&text=${text}`;
+      const webUrl = `https://wa.me/${phone}?text=${text}`;
+
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      if (isMobile) {
+        window.location.href = appUrl;
+        setTimeout(() => {
+          window.location.href = webUrl;
+        }, 1200);
+      } else {
+        window.open(webUrl, '_blank', 'noopener');
+      }
+    });
+  });
+</script>
+        <img  src="img\shirt\TRACKSUIT 02-01.jpg"
              class="card-img" 
              alt="Product 1" 
-             style="opacity:0.85; width: 100%; max-width: 370px;">
+             style="opacity:0.85; width: 100%; max-width: 550px;">
       </div>
-
       <!-- Card Body + Table -->
       <div class="col-12 col-md-8 text-center">
         <div class="card-body">
@@ -157,60 +180,22 @@
         <th> PRICE | QUANTITY</th>
         <th> PRICE | QUANTITY</th>
         <th> PRICE | QUANTITY</th>
+         <th> PRICE | QUANTITY</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td data-label="TYPE"><p style="font-size: 25px;" class="title1">EYELET</p></td>
-        <td data-label=" PRICE | MOQ">RM 35 | MOQ: 10</td>
-        <td data-label=" PRICE | MOQ">RM 33 | MOQ: 30</td>
-        <td data-label=" PRICE |  MOQ">RM 30 | MOQ: 50 - 100</td>
-      </tr>
-      <tr>
-        <td data-label="TYPE"><p style="font-size: 25px;" class="title1">INTERLOCK</p></td>
-        <td data-label=" PRICE | MOQ">RM 35 | MOQ: 10</td>
-        <td data-label=" PRICE | MOQ">RM 33 | MOQ: 30</td>
-        <td data-label=" PRICE |  MOQ">RM 30 | MOQ: 50 - 100</td>
-      </tr>
-      <tr>
-        <td data-label="TYPE"><p style="font-size: 25px;" class="title1">DIAMOND</p></td>
-        <td data-label=" PRICE | MOQ">RM 35 | MOQ: 10</td>
-        <td data-label=" PRICE | MOQ">RM 33 | MOQ: 30</td>
-        <td data-label=" PRICE |  MOQ">RM 30 | MOQ: 50 - 100</td>
-      </tr>
-      <tr>
-        <td data-label="TYPE"><p style="font-size: 25px;" class="title1">LYCRA</p></td>
-        <td data-label=" PRICE | MOQ">RM 45 | MOQ: 10</td>
-        <td data-label=" PRICE | MOQ">RM 43 | MOQ: 30</td>
-        <td data-label=" PRICE | MOQ">RM 40 | MOQ: 50 - 100</td>
+        <td data-label="TYPE"><p style="font-size: 25px;" class="title1"> 3RD QUARTER</p></td>
+        <td data-label=" PRICE | MOQ">RM 40 | MOQ: 1 - 10</td>
+        <td data-label=" PRICE | MOQ">RM 38 | MOQ: 11 - 19</td>
+        <td data-label=" PRICE | MOQ">RM 35 | MOQ: 20 - 40</td>
+        <td data-label=" PRICE | MOQ">RM 30 | MOQ: 41 - 50</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<script>
-  document.querySelectorAll('.whatsBtn').forEach(button => {
-    button.addEventListener('click', function () {
-      const phone = '60175156872';  
-      const text  = encodeURIComponent(this.dataset.message || 'BAJU ROUNDNECK ');
 
-      // Deep links
-      const appUrl = `whatsapp://send?phone=${phone}&text=${text}`;
-      const webUrl = `https://wa.me/${phone}?text=${text}`;
-
-      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-      if (isMobile) {
-        window.location.href = appUrl;
-        setTimeout(() => {
-          window.location.href = webUrl;
-        }, 1200);
-      } else {
-        window.open(webUrl, '_blank', 'noopener');
-      }
-    });
-  });
-</script>
 
 </div>
         </div>

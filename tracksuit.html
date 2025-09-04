@@ -70,6 +70,7 @@
     </div>
   </div>
 </nav>
+
 <br><br><br>
 <div class="text-center my-4">
 
@@ -77,85 +78,136 @@
 </div>
 
 <div class="container my-4">
-
   <div class="card">
-    
     <div class="row g-0 flex-wrap">
-      
+       
       <!-- Product Image -->
       <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
-         <div class="text-center my-3">
-  <a href="shop.php" class="btn btn-dark btn-lg w-50">Buy now</a>
-</div>
-        <img src="img\shirt\TRACKSUIT 02-01.jpg" 
+        <div class="text-center my-3">
+          <a href="#" class="btn btn-dark btn-lg w-50 whatsBtn">Buy now</a>
+        </div>
+        <script>
+  document.querySelectorAll('.whatsBtn').forEach(button => {
+    button.addEventListener('click', function () {
+      const phone = '60175156872';  
+      const text  = encodeURIComponent(this.dataset.message || ' TRACKSUIT ');
+
+      // Deep links
+      const appUrl = `whatsapp://send?phone=${phone}&text=${text}`;
+      const webUrl = `https://wa.me/${phone}?text=${text}`;
+
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      if (isMobile) {
+        window.location.href = appUrl;
+        setTimeout(() => {
+          window.location.href = webUrl;
+        }, 1200);
+      } else {
+        window.open(webUrl, '_blank', 'noopener');
+      }
+    });
+  });
+</script>
+        <img  src="img\shirt\TRACKSUIT 02-01.jpg"
              class="card-img" 
              alt="Product 1" 
-             style="opacity:0.85; width: 100%; max-width: 400px;">
+             style="opacity:0.85; width: 100%; max-width: 550px;">
       </div>
-
       <!-- Card Body + Table -->
-      <div class="col-12 col-md-8">
-        <div class="card-body ">
-          <h5 class="card-title display-5 ">Description</h5>
+      <div class="col-12 col-md-8 text-center">
+        <div class="card-body">
+          <h5 class="card-title display-5 title2">Description</h5>
+<style>
+/* Base table */
+.table-custom {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  text-align: center;
+}
 
-       <div class="table-responsive my-3">
-  <table class="table table-bordered text-center">
+/* Mobile friendly layout */
+@media (max-width: 768px) {
+  .table-custom thead {
+    display: none;
+  }
+
+  .table-custom, 
+  .table-custom tbody, 
+  .table-custom tr, 
+  .table-custom td {
+    display: block;
+    width: 100%;
+  }
+
+  .table-custom tr {
+    margin-bottom: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background: #f8f9fa;
+    padding: 8px;
+  }
+
+  .table-custom td {
+    text-align: left;
+    padding: 6px 12px;
+    border: none;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 14px;
+  }
+
+  .table-custom td:last-child {
+    border-bottom: none;
+  }
+
+  /* Label */
+  .table-custom td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: inline-block;
+    width: 50%;
+    color: #212529;
+  }
+}
+</style>
+
+<div class="my-3">
+  <table class="table table-bordered table-striped table-custom">
     <thead class="table-dark">
       <tr>
-        <th scope="col">Product Name</th>
-        <th scope="col">Category</th>
-        <th scope="col">Price</th>
+        <th>TYPE</th>
+        <th> PRICE | QUANTITY</th>
+        <th> PRICE | QUANTITY</th>
+        <th> PRICE | QUANTITY</th>
+        <th> PRICE | QUANTITY</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>RNECK BLACK</td>
-        <td>Shirts</td>
-        <td>RM 79</td>
+        <td data-label="TYPE"><p style="font-size: 25px;" class="title1"> TRACKSUIT</p></td>
+        <td data-label=" PRICE | MOQ">RM 45  | MOQ: 1 - 10</td>
+        <td data-label=" PRICE | MOQ">RM 40  | MOQ: 11 - 19</td>
+        <td data-label=" PRICE | MOQ">RM 38  | MOQ: 20 - 40</td>
+        <td data-label=" PRICE | MOQ">RM 35  | MOQ: 41 - 50</td>
       </tr>
-      <tr>
-        <td>Sporting P</td>
-        <td>Socks</td>
-        <td>RM 25</td>
-      </tr>
-      <tr>
-        <td>Shorts Blue</td>
-        <td>Shorts</td>
-        <td>RM 50</td>
-      </tr>
-      <tr>
-        <td>Cap Red</td>
-        <td>Cap</td>
-        <td>RM 30</td>
-      </tr>
-      <tr>
-        <td>T-Shirt White</td>
-        <td>Shirts</td>
-        <td>RM 60</td>
-      </tr>
-      <tr>
-        <td>Socks Black</td>
-        <td>Socks</td>
-        <td>RM 20</td>
-      </tr>
-      <tr>
-        <td>Shorts Green</td>
-        <td>Shorts</td>
-        <td>RM 55</td>
-      </tr>
+
     </tbody>
   </table>
 </div>
-</div>
 
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+
+</div>
         </div>
+
+        <p class="card-text"></p>
+        <p class="card-text"><small class="text-muted"></small></p>
       </div>
     </div>
   </div>
-
 </div>
+
 <footer class="bg-dark text-white text-center py-3 ">
   <p class="">&copy; SGE</p>
 
@@ -171,5 +223,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="script.js"></script>
-
 
