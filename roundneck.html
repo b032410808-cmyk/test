@@ -206,20 +206,35 @@ document.querySelectorAll(".shirt-anim").forEach(img => {
 });
 
           </script>
-<style>
-  /* Shirt image animation */
-.shirt-anim {
-  transition: box-shadow 0.6s ease;
-  cursor: pointer;
-  border-radius: 12px;
-}
+<script>
+document.querySelectorAll(".shirt-anim").forEach(img => {
+  const applyEffect = () => {
+    img.style.transform = "perspective(500px) rotateX(5deg) rotateY(-5deg) scale(1.05)";
+    img.style.boxShadow = "0 20px 40px rgba(0,0,0,0.15)";
+  };
 
-/* Hover effect */
-.shirt-anim:hover {
-  transform: scale(1.0) rotate(4deg);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-</style>
+  const resetEffect = () => {
+    img.style.transform = "perspective(500px) rotateX(0) rotateY(0) scale(1)";
+    img.style.boxShadow = "none";
+  };
+
+  // Desktop hover
+  img.addEventListener("mouseenter", applyEffect);
+  img.addEventListener("mouseleave", resetEffect);
+
+  // Touchscreen tap toggle
+  let tapped = false;
+  img.addEventListener("touchstart", e => {
+    e.preventDefault(); // prevent zooming on tap
+    tapped = !tapped;
+    if (tapped) {
+      applyEffect();
+    } else {
+      resetEffect();
+    }
+  });
+});
+</script>
 
       </div>
 
