@@ -73,3 +73,25 @@ window.addEventListener("resize", () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+  document.querySelectorAll('.whatsBtn').forEach(button => {
+    button.addEventListener('click', function () {
+      const phone = '60175156872';  
+      const text  = encodeURIComponent(this.dataset.message || 'SERVICE BAJU ');
+
+      // Deep links
+      const appUrl = `whatsapp://send?phone=${phone}&text=${text}`;
+      const webUrl = `https://wa.me/${phone}?text=${text}`;
+
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      if (isMobile) {
+        window.location.href = appUrl;
+        setTimeout(() => {
+          window.location.href = webUrl;
+        }, 1200);
+      } else {
+        window.open(webUrl, '_blank', 'noopener');
+      }
+    });
+  });
