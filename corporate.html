@@ -14,7 +14,102 @@
 
 </head>
 <body>
+<style>
+  /* ====== GLOBAL ====== */
+body {
+  background: #f9f9f9; /* very light gray */
+  font-family: "Poppins", sans-serif;
+  color: #333; /* dark gray text for readability */
+}
 
+/* ====== TITLES ====== */
+.title2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #222; /* darker gray, not black */
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* ====== PRODUCT CARD ====== */
+.card {
+  background: #fff; /* clean white */
+  border: 1px solid #ddd; /* soft gray outline */
+  border-radius: 14px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* soft shadow only */
+}
+
+/* ====== PRODUCT IMAGE ====== */
+.shirt-anim {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fff;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.shirt-anim:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 12px rgba(200,200,200,0.5); /* light gray glow */
+}
+
+/* ====== BUY BUTTON ====== */
+.whatsBtn {
+  background: #fff;
+  color: #333;
+  font-weight: 600;
+  border: 1px solid #ccc; /* subtle gray border */
+  border-radius: 40px;
+  padding: 12px 34px;
+  transition: all 0.3s ease-in-out;
+}
+
+.whatsBtn:hover {
+  background: #f0f0f0; /* soft gray hover */
+  color: #000;
+  box-shadow: 0 0 10px rgba(150,150,150,0.3);
+}
+
+/* ====== TABLE ====== */
+.table-custom {
+  color: #333;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0; /* outer border */
+}
+
+.table-custom th {
+  background: #f7f7f7; /* light gray */
+  color: #333;
+  border: 1px solid #ddd; /* outline for header */
+  font-weight: 600;
+}
+
+.table-custom td {
+  border: 1px solid #e0e0e0;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  background: #f2f2f2;
+  color: #666;
+}
+
+footer a {
+  color: #d4af37; /* gold yellow */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #b9972c; /* slightly darker gold on hover */
+}
+</style>
  <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
      style="opacity:0.9; position: fixed; top: 0; left: 0; width: 100%; z-index: 1050;">
@@ -83,51 +178,170 @@
   <div class="card">
     <div class="row g-0 flex-wrap">
        
-      <!-- Product Image -->
+ 
+  <!-- Product Image -->
       <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
         <div class="text-center my-3">
-          <a href="shop.html" class="btn btn-dark btn-lg w-50">Buy now</a>
+          <a href="#" class="btn btn-dark btn-lg w-50 whatsBtn">Buy now</a>
         </div>
-        <img height="500" src="img\shirt\RETRO.jpg" 
-             class="card-img" 
+        <img src="img/shirt/CORPORAT DEPAN BELAKANG.jpg" 
+             class="card-img shirt-anim" 
              alt="Product 1" 
-             style="opacity:0.85; width: 100%; max-width: 500px;">
+             style="opacity:0.85; width: 100%; max-width: 400px;">
       </div>
+ <!-- Shirt Image -->
+  <script>
+  document.querySelectorAll('.whatsBtn').forEach(button => {
+    button.addEventListener('click', function () {
+      const phone = '60175156872';  
+      const text  = encodeURIComponent(this.dataset.message || ' CORPORATE ');
 
+      // Deep links
+      const appUrl = `whatsapp://send?phone=${phone}&text=${text}`;
+      const webUrl = `https://wa.me/${phone}?text=${text}`;
+
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      if (isMobile) {
+        window.location.href = appUrl;
+        setTimeout(() => {
+          window.location.href = webUrl;
+        }, 1200);
+      } else {
+        window.open(webUrl, '_blank', 'noopener');
+      }
+    });
+  });
+</script>
+<script>
+            // Add to your script.js or inside <script>
+document.querySelectorAll(".shirt-anim").forEach(img => {
+  img.addEventListener("mousemove", e => {
+    const rect = img.getBoundingClientRect();
+    const x = e.clientX - rect.left; 
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * 5; 
+    const rotateY = ((x - centerX) / centerX) * -5;
+
+    img.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+  });
+
+  img.addEventListener("mouseleave", () => {
+    img.style.transform = "perspective(500px) rotateX(0) rotateY(0) scale(1)";
+  });
+});
+
+          </script>
+<style>
+  /* Shirt image animation */
+.shirt-anim {
+  transition: box-shadow 0.6s ease;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+/* Hover effect */
+.shirt-anim:hover {
+  transform: scale(1.0) rotate(4deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+</style>
+       
       <!-- Card Body + Table -->
       <div class="col-12 col-md-8 text-center">
         <div class="card-body">
-          <h5 class="card-title display-5">Description</h5>
+          <h5 class="card-title display-5 title2">Description</h5>
+<style>
+/* Base table */
+.table-custom {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  text-align: center;
+}
 
-          <div class="table-responsive my-3">
-            <table class="table table-bordered text-center">
-              <thead class="table-dark">
-                <tr>
-                  <th scope="col">Product Name</th>
-                  <th scope="col">Category</th>
-                  <th scope="col">Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>RNECK BLACK</td><td>Shirts</td><td>RM 79</td></tr>
-                <tr><td>Sporting P</td><td>Socks</td><td>RM 25</td></tr>
-                <tr><td>Shorts Blue</td><td>Shorts</td><td>RM 50</td></tr>
-                <tr><td>Cap Red</td><td>Cap</td><td>RM 30</td></tr>
-                <tr><td>T-Shirt White</td><td>Shirts</td><td>RM 60</td></tr>
-                <tr><td>Socks Black</td><td>Socks</td><td>RM 20</td></tr>
-                <tr><td>Shorts Green</td><td>Shorts</td><td>RM 55</td></tr>
-              </tbody>
-            </table>
-          </div>
+/* Mobile friendly layout */
+@media (max-width: 768px) {
+  .table-custom thead {
+    display: none;
+  }
+
+  .table-custom, 
+  .table-custom tbody, 
+  .table-custom tr, 
+  .table-custom td {
+    display: block;
+    width: 100%;
+  }
+
+  .table-custom tr {
+    margin-bottom: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background: #f8f9fa;
+    padding: 8px;
+  }
+
+  .table-custom td {
+    text-align: left;
+    padding: 6px 12px;
+    border: none;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 14px;
+  }
+
+  .table-custom td:last-child {
+    border-bottom: none;
+  }
+
+  /* Label */
+  .table-custom td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: inline-block;
+    width: 50%;
+    color: #212529;
+  }
+}
+</style>
+
+<div class="my-3">
+  <table class="table table-bordered table-striped table-custom">
+    <thead class="table-dark">
+      <tr>
+        <th>TYPE</th>
+        <th> PRICE | QUANTITY</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="TYPE"><p style="font-size: 25px;" class="title1">POLYSOFT</p></td>
+        <td data-label=" PRICE | MOQ">RM 60 - 80 | MOQ: 10 - 30 </td>
+
+      </tr>
+      <tr>
+        <td data-label="TYPE"><p style="font-size: 25px;" class="title1">DENIM</p></td>
+    <td data-label=" PRICE | MOQ">RM 60 - 80 | MOQ: 10 - 30 </td>
+      </tr>
+      
+
+    </tbody>
+  </table>
+</div>
+
+
+
+</div>
         </div>
 
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <p class="card-text"></p>
+        <p class="card-text"><small class="text-muted"></small></p>
       </div>
     </div>
   </div>
 </div>
-
 
 <footer class="bg-dark text-white text-center py-3 ">
   <p class="">&copy; SGE</p>
@@ -147,6 +361,9 @@
 
 <script src="script.js"></script>
 </footer>
+
+
+
 
 
 

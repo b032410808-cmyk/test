@@ -675,23 +675,29 @@
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
+footer a {
+  color: #d4af37; /* gold yellow */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
 
     /* Button Glow Pulse */
     .join-btn {
-      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      background: linear-gradient(135deg, #ffd700, #9d6a2c);
       border: none;
-      color: #ababab;
+      color: #ffffff;
       font-weight: bold;
       padding: 12px 30px;
       border-radius: 50px;
-      box-shadow: 0 0 20px rgba(255,215,0,0.6);
+      box-shadow: 0 0 0px rgba(255,215,0,1);
       transition: all 0.3s ease;
-      animation: pulseGlow 2s infinite;
+
     }
 
     .join-btn:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 30px rgba(255,215,0,0.9);
+      box-shadow: 0 0 5px rgba(255,215,0,0.9);
     }
 
     @keyframes pulseGlow {

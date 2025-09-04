@@ -14,7 +14,102 @@
 
 </head>
 <body>
+<style>
+  /* ====== GLOBAL ====== */
+body {
+  background: #f9f9f9; /* very light gray */
+  font-family: "Poppins", sans-serif;
+  color: #333; /* dark gray text for readability */
+}
 
+/* ====== TITLES ====== */
+.title2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #222; /* darker gray, not black */
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* ====== PRODUCT CARD ====== */
+.card {
+  background: #fff; /* clean white */
+  border: 1px solid #ddd; /* soft gray outline */
+  border-radius: 14px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* soft shadow only */
+}
+
+/* ====== PRODUCT IMAGE ====== */
+.shirt-anim {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fff;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.shirt-anim:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 12px rgba(200,200,200,0.5); /* light gray glow */
+}
+
+/* ====== BUY BUTTON ====== */
+.whatsBtn {
+  background: #fff;
+  color: #333;
+  font-weight: 600;
+  border: 1px solid #ccc; /* subtle gray border */
+  border-radius: 40px;
+  padding: 12px 34px;
+  transition: all 0.3s ease-in-out;
+}
+
+.whatsBtn:hover {
+  background: #f0f0f0; /* soft gray hover */
+  color: #000;
+  box-shadow: 0 0 10px rgba(150,150,150,0.3);
+}
+
+/* ====== TABLE ====== */
+.table-custom {
+  color: #333;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0; /* outer border */
+}
+
+.table-custom th {
+  background: #f7f7f7; /* light gray */
+  color: #333;
+  border: 1px solid #ddd; /* outline for header */
+  font-weight: 600;
+}
+
+.table-custom td {
+  border: 1px solid #e0e0e0;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  background: #f2f2f2;
+  color: #666;
+}
+
+footer a {
+  color: #d4af37; /* gold yellow */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #b9972c; /* slightly darker gold on hover */
+}
+</style>
  <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
      style="opacity:0.9; position: fixed; top: 0; left: 0; width: 100%; z-index: 1050;">
@@ -161,7 +256,7 @@ document.querySelectorAll(".shirt-anim").forEach(img => {
 .table-custom {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
 }
 
@@ -184,7 +279,7 @@ document.querySelectorAll(".shirt-anim").forEach(img => {
     border: 1px solid #dee2e6;
     border-radius: 8px;
     background: #f8f9fa;
-    padding: 8px;
+    padding: 4px;
   }
 
   .table-custom td {
@@ -223,11 +318,11 @@ document.querySelectorAll(".shirt-anim").forEach(img => {
     </thead>
     <tbody>
       <tr>
-        <td data-label="TYPE"><p style="font-size: 25px;" class="title1"> TRACKSUIT</p></td>
-        <td data-label=" PRICE | MOQ">RM 45  | MOQ: 1 - 10</td>
-        <td data-label=" PRICE | MOQ">RM 40  | MOQ: 11 - 19</td>
-        <td data-label=" PRICE | MOQ">RM 38  | MOQ: 20 - 40</td>
-        <td data-label=" PRICE | MOQ">RM 35  | MOQ: 41 - 50</td>
+        <td data-label="TYPE"><p style="font-size: 20px;" class="title1"> POLYESTER STRECHY</p></td>
+        <td data-label=" PRICE | MOQ">RM 45  | MOQ: 1 - 19</td>
+        <td data-label=" PRICE | MOQ">RM 40  | MOQ: 20 - 30</td>
+        <td data-label=" PRICE | MOQ">RM 38  | MOQ: 31 - 50</td>
+        <td data-label=" PRICE | MOQ">RM 35  | MOQ: 51 - 70</td>
       </tr>
 
     </tbody>
