@@ -161,11 +161,11 @@
     <tbody>
       <tr>
         <td data-label="TYPE"><p style="font-size: 25px;" class="title1">BASEBALL</p></td>
-        <td data-label=" PRICE | MOQ">RM 25 | MOQ: 10 </td>
+        <td data-label=" PRICE | MOQ">RM 25 | UNITS: 1 </td>
       </tr>
       <tr>
         <td data-label="TYPE"><p style="font-size: 25px;" class="title1">TRUCKER</p></td>
-        <td data-label=" PRICE | MOQ">RM 30 - 40 | MOQ: 10 </td>
+        <td data-label=" PRICE | MOQ">RM 30 - 40 | UNITS: 1 </td>
 
       </tr>
     </tbody>
@@ -176,7 +176,7 @@
   document.querySelectorAll('.whatsBtn').forEach(button => {
     button.addEventListener('click', function () {
       const phone = '60175156872';  
-      const text  = encodeURIComponent(this.dataset.message || 'SOCKS ');
+      const text  = encodeURIComponent(this.dataset.message || 'CAP ');
 
       // Deep links
       const appUrl = `whatsapp://send?phone=${phone}&text=${text}`;
