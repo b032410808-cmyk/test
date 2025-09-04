@@ -70,22 +70,46 @@
     </div>
   </div>
 </nav>
+
 <br><br><br>
 <div class="text-center my-4">
 
- <h1 class=" title2" style="font-size: 70px;">POLO COLLAR</h1>
+ <h1 class=" title2" style="font-size: 70px;">POLO Collar</h1>
 </div>
 
 <div class="container my-4">
   <div class="card">
     <div class="row g-0 flex-wrap">
        
-        <!-- Product Image -->
+      <!-- Product Image -->
       <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
         <div class="text-center my-3">
-          <a href="shop.php" class="btn btn-dark btn-lg w-50">Buy now</a>
+          <a href="#" class="btn btn-dark btn-lg w-50 whatsBtn">Buy now</a>
         </div>
-        <img height="480" src="img\shirt\KOLAR.jpg" 
+        <script>
+  document.querySelectorAll('.whatsBtn').forEach(button => {
+    button.addEventListener('click', function () {
+      const phone = '60175156872';  
+      const text  = encodeURIComponent(this.dataset.message || ' BAJU POLO ');
+
+      // Deep links
+      const appUrl = `whatsapp://send?phone=${phone}&text=${text}`;
+      const webUrl = `https://wa.me/${phone}?text=${text}`;
+
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      if (isMobile) {
+        window.location.href = appUrl;
+        setTimeout(() => {
+          window.location.href = webUrl;
+        }, 1200);
+      } else {
+        window.open(webUrl, '_blank', 'noopener');
+      }
+    });
+  });
+</script>
+        <img  src="img\shirt\KOLAR.jpg" 
              class="card-img" 
              alt="Product 1" 
              style="opacity:0.85; width: 100%; max-width: 550px;">
@@ -161,27 +185,27 @@
     <tbody>
       <tr>
         <td data-label="TYPE"><p style="font-size: 25px;" class="title1">EYELET</p></td>
-        <td data-label="PRICE | MOQ">RM 37 | MOQ: 10</td>
-        <td data-label="DISCOUNTED PRICE | MOQ">RM 35 | MOQ: 30</td>
-        <td data-label="PREMIUM PRICE |  MOQ">RM 32 | MOQ: 50 - 100</td>
+        <td data-label=" PRICE | MOQ">RM 40 | MOQ: 10</td>
+        <td data-label=" PRICE | MOQ">RM 38 | MOQ: 30</td>
+        <td data-label=" PRICE |  MOQ">RM 35 | MOQ: 50 - 100</td>
       </tr>
       <tr>
         <td data-label="TYPE"><p style="font-size: 25px;" class="title1">INTERLOCK</p></td>
-        <td data-label="PRICE | MOQ">RM 37 | MOQ: 10</td>
-        <td data-label="DISCOUNTED PRICE | MOQ">RM 35 | MOQ: 30</td>
-        <td data-label="PREMIUM PRICE |  MOQ">RM 32 | MOQ: 50 - 100</td>
+        <td data-label=" PRICE | MOQ">RM 40 | MOQ: 10</td>
+        <td data-label=" PRICE | MOQ">RM 38 | MOQ: 30</td>
+        <td data-label=" PRICE |  MOQ">RM 35 | MOQ: 50 - 100</td>
       </tr>
       <tr>
         <td data-label="TYPE"><p style="font-size: 25px;" class="title1">DIAMOND</p></td>
-        <td data-label="PRICE | MOQ">RM 37 | MOQ: 10</td>
-        <td data-label="DISCOUNTED PRICE | MOQ">RM 35 | MOQ: 30</td>
-        <td data-label="PREMIUM PRICE |  MOQ">RM 32 | MOQ: 50 - 100</td>
+        <td data-label=" PRICE | MOQ">RM 40 | MOQ: 10</td>
+        <td data-label=" PRICE | MOQ">RM 38 | MOQ: 30</td>
+        <td data-label=" PRICE |  MOQ">RM 35 | MOQ: 50 - 100</td>
       </tr>
       <tr>
         <td data-label="TYPE"><p style="font-size: 25px;" class="title1">LYCRA</p></td>
-        <td data-label="PRICE | MOQ">RM 45 | MOQ: 10</td>
-        <td data-label="DISCOUNTED PRICE | MOQ">RM 43 | MOQ: 30</td>
-        <td data-label="PREMIUM PRICE | MOQ">RM 40 | MOQ: 50 - 100</td>
+        <td data-label=" PRICE | MOQ">RM 50 | MOQ: 10</td>
+        <td data-label=" PRICE | MOQ">RM 48 | MOQ: 30</td>
+        <td data-label=" PRICE | MOQ">RM 45 | MOQ: 50 - 100</td>
       </tr>
     </tbody>
   </table>
