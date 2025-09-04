@@ -152,7 +152,67 @@
 
 <!-- CSS -->
 <style>
+/* ✨ Glow Effect for Text */
+.hero-content p {
+  animation: glow-text 2.5s ease-in-out infinite alternate;
+}
 
+
+
+/* 🟢 SHOP NOW Button Glow + Shine */
+#whatsBtn {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#whatsBtn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(210, 241, 7, 0.752);
+}
+
+/* Shine effect */
+#whatsBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+  transform: skewX(-25deg);
+}
+
+#whatsBtn:hover::before {
+  animation: shine 0.8s forwards;
+}
+
+@keyframes shine {
+  100% { left: 125%; }
+}
+
+/* 🎵 Social Icons Pulse */
+.social-btn {
+  animation: pulse 2.5s infinite;
+  transition: transform 0.3s ease;
+}
+
+.social-btn:hover {
+  transform: scale(1.2) rotate(5deg);
+  box-shadow: 0 0 20px rgba(255,255,255,0.6);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 5px rgba(255,255,255,0.3); }
+  50% { box-shadow: 0 0 20px rgba(255,255,255,0.5); }
+  100% { box-shadow: 0 0 5px rgba(255,255,255,0.3); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
 
 .hero-content {
   position: relative;
@@ -212,12 +272,7 @@
     height: 55px;
   }
 }
-</style>
 
-
-
-<!-- CSS -->
-<style>
 #bg-video {
   position: fixed;
   top: 0;
@@ -234,7 +289,7 @@
 <div class="container">
   <h1 class="text-center title1 mb-3" style="font-size: 40px; color: #fff;">Catalog</h1>
 
-  <div id="catalogCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
+  <div id="catalogCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-inner">
 
       <!-- Slide 1 -->
@@ -376,62 +431,116 @@
 </div>
 <!-- Styles -->
 <style>
-  .catalog-card {
-    transition: all 0.4s ease-in-out;
-    border-radius: 12px;
-    min-height: 100px;
-    max-height: 100px;
-        overflow:hidden;
-  }
-  .catalog-card:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-  }
+.catalog-card {
+  transition: all 0.4s ease-in-out;
+  border-radius: 12px;
+  min-height: 100px;
+  max-height: 100px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+  color: #fff;
+  position: relative;
+  perspective: 1000px;
+  border: 2px solid rgba(255, 215, 0, 0.2) !important; /* ✅ always visible outline */
+  box-sizing: border-box; /* ensures outline doesn’t collapse */
+}
 
-  /* Carousel card spacing */
-  .carousel .carousel-item {
-    padding: 15px 0;
-  }
-  .carousel .card {
-    margin: 0 5px;
-  }
+/* Hover 3D tilt + glow border */
+.catalog-card:hover {
+  transform: translateY(-8px) scale(1.05) rotateX(4deg) rotateY(-4deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+  border: 2px solid #ffd700 !important; /* ✅ stronger glow on hover */
+}
+/* Shimmer animation inside cards */
+.catalog-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 40%,
+    transparent 80%
+  );
+  transform: rotate(25deg);
+  animation: shine 3s infinite;
+  pointer-events: none;
+}
 
-  /* Custom carousel controls */
-  #catalogCarousel .carousel-control-prev,
-  #catalogCarousel .carousel-control-next {
-    width: 70px;
-    height: 70px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.5);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  #catalogCarousel .carousel-control-prev-icon,
-  #catalogCarousel .carousel-control-next-icon {
-    background-image: none;
-    width: 25px;
-    height: 25px;
-    border: solid white;
-    border-width: 0 6px 6px 0;
-    display: inline-block;
-    padding: 6px;
-  }
-  #catalogCarousel .carousel-control-prev-icon {
-    transform: rotate(135deg);
-  }
-  #catalogCarousel .carousel-control-next-icon {
-    transform: rotate(-45deg);
-  }
-  #catalogCarousel .carousel-control-prev:hover,
-  #catalogCarousel .carousel-control-next:hover {
-    background-color: rgba(0,0,0,0.8);
-    transform: translateY(-50%) scale(1.15);
-    transition: 0.3s;
-  }
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(100%) rotate(25deg); }
+}
+
+/* Title animation */
+.catalog-card h1 {
+  font-size: 22px;
+  color: #fff;
+  transition: 0.4s ease;
+  z-index: 2;
+}
+
+.catalog-card:hover h1 {
+  color: #ffd700;
+  letter-spacing: 2px;
+  transform: scale(1.1);
+}
+
+/* Carousel card spacing */
+.carousel .carousel-item {
+  padding: 15px 0;
+}
+.carousel .card {
+  margin: 0 5px;
+  border: none;
+  background: none;
+}
+
+/* Custom carousel controls */
+#catalogCarousel .carousel-control-prev,
+#catalogCarousel .carousel-control-next {
+  width: 70px;
+  height: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(1px);
+  transition: all 0.3s ease;
+}
+
+#catalogCarousel .carousel-control-prev-icon,
+#catalogCarousel .carousel-control-next-icon {
+  background-image: none;
+  width: 20px;
+  height: 20px;
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 6px;
+}
+
+#catalogCarousel .carousel-control-prev-icon {
+  transform: rotate(135deg);
+}
+#catalogCarousel .carousel-control-next-icon {
+  transform: rotate(-45deg);
+}
+
+#catalogCarousel .carousel-control-prev:hover,
+#catalogCarousel .carousel-control-next:hover {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: #ffd700;
+  transform: translateY(-50%) scale(1.15);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
 </style>
 
 <!-- Mobile Swipe Support -->
@@ -457,171 +566,139 @@
 <!-- Collaboration Section -->
 <section class="sec text-center py-5">
   <div>
-   <h1 class="text-center title1 mb-4" style="font-size: 40px; color: #fff;">Collaboration</h1>
+    <h1 class="text-center title1 mb-4" style="font-size: 40px; color: #ffffff; text-shadow: 0 0 10px rgba(255, 217, 0, 0.492);">
+      Collaboration 
+    </h1>
 
     <div class="row row-cols-2 row-cols-md-4 ms-1 me-1 my-3 g-4">
 
-      <!-- Card 1 -->
+      <!-- Card -->
       <div class="col">
-        <div class="card shadow-sm border-0 img-container">
-          <img src="img/hosba.png" 
-               class="card-img-top shadow waveImage" 
-               alt="Hosba" 
-               style="opacity:0.85;" />
+        <div class="card collab-card img-container">
+          <img src="img/hosba.png" class="card-img-top waveImage" alt="Hosba" />
           <div class="img-overlay">Hosba Collection</div>
         </div>
       </div>
 
-      <!-- Card 2 -->
+      <!-- Card -->
       <div class="col">
-        <div class="card shadow-sm border-0 img-container">
-          <img src="img/eagles.png" 
-               class="card-img-top shadow waveImage" 
-               alt="Eagles" 
-               style="opacity:0.85;" />
+        <div class="card collab-card img-container">
+          <img src="img/eagles.png" class="card-img-top waveImage" alt="Eagles" />
           <div class="img-overlay">Eagles Edition</div>
         </div>
       </div>
 
-      <!-- Card 3 -->
+      <!-- Card -->
       <div class="col">
-        <div class="card shadow-sm border-0 img-container">
-          <img src="img/malaysia.png" 
-               class="card-img-top shadow waveImage" 
-               alt="Malaysia" 
-               style="opacity:0.85;" />
+        <div class="card collab-card img-container">
+          <img src="img/malaysia.png" class="card-img-top waveImage" alt="Malaysia" />
           <div class="img-overlay">Malaysia Pride</div>
         </div>
       </div>
 
-      <!-- Card 4 -->
+      <!-- Card -->
       <div class="col">
-        <div class="card shadow-sm border-0 img-container">
-          <img src="img/englishc.png" 
-               class="card-img-top shadow waveImage" 
-               alt="English" 
-               style="opacity:0.85;" />
+        <div class="card collab-card img-container">
+          <img src="img/englishc.png" class="card-img-top waveImage" alt="English" />
           <div class="img-overlay">English College</div>
         </div>
       </div>
 
     </div>
-    <div class="text-center my-5 "style="a">
-     <a id="whatsBtn1" class="btn btn-primary btn-lg zoomImage1" role="button">JOIN US NOW</a>
+
+    <div class="text-center my-5">
+      <a id="whatsBtn1" class="btn btn-primary btn-lg join-btn" role="button"> JOIN US NOW</a>
     </div>
   </div>
 
-<script>
-  document.getElementById('whatsBtn1').addEventListener('click', function () {
-    const phone = '60175156872';  // ✅ Full intl format, no +, no 0
-    const text  = encodeURIComponent('CUSTOM BAJU');
-
-    // Deep links
-    const appUrl = `whatsapp://send?phone=${phone}&text=${text}`;  // Native app
-    const webUrl = `https://wa.me/${phone}?text=${text}`;          // Web fallback
-
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-    if (isMobile) {
-      // 📱 Try open app first
-      window.location.href = appUrl;
-
-      // ⏱️ If app not installed, fallback to web (auto redirects to app store)
-      setTimeout(() => {
-        window.location.href = webUrl;
-      }, 1200);
-    } else {
-      // 💻 Desktop → open WhatsApp Web
-      window.open(webUrl, '_blank', 'noopener');
-    }
-  });
-</script>
-
-  <!-- Script for social icon zoom -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    
-    const zoomImages1 = document.querySelectorAll(".zoomImage1");
-    zoomImages1.forEach(img => {
-      img.style.transition = "transform 0.3s";
-      img.addEventListener("mouseover", function () {
-        img.style.transform = "scale(1.1)";
-      });
-      img.addEventListener("mouseout", function () {
-        img.style.transform = "scale(1)";
-      });
-    });
-
-    // jQuery Hover for overlay
-    $(document).ready(function(){
-      $(".img-container").hover(
-        function(){
-          $(this).find(".img-overlay").fadeIn(300).css("transform","translateY(0)");
-        },
-        function(){
-          $(this).find(".img-overlay").fadeOut(300).css("transform","translateY(20px)");
-        }
-      );
-    });
-  </script>
-
   <!-- CSS -->
   <style>
-    /* Wave Animation */
-    @keyframes waveZoom {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.02); }
+    /* Floating Animation */
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
     }
-    .waveImage {
-      animation: waveZoom 2s infinite ease-in-out;
-      transition: transform 0.4s ease-in-out;
-      cursor: pointer;
+
+    .collab-card {
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      animation: floatCard 4s ease-in-out infinite;
+      transition: all 0.4s ease-in-out;
+      border: 2px solid rgba(255, 215, 0, 0.2);
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(1px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
-    .waveImage:hover {
-      animation-play-state: paused;
+
+    .collab-card:hover {
+      transform: scale(1.05) translateY(-6px);
+      border: 2px solid #ffd700;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+    }
+
+    /* Image Effect */
+    .img-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .img-container:hover img {
+      filter: brightness(40%) blur(1px);
       transform: scale(1.1);
     }
 
-    /* Overlay styles */
-   .img-container {
-  position: relative;
-  overflow: hidden;
-}
+    /* Overlay Glass Effect */
+    .img-overlay {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      padding: 10px 20px;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(1px);
+      border-radius: 8px;
+      color: #fffffd;
+      font-size: 1.1rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-shadow: 0 0 5px rgba(255,215,0,0.6);
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
 
-.img-container img {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: filter 0.3s ease; /* smooth darkening */
-}
+    .img-container:hover .img-overlay {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
 
-.img-container:hover img {
-  filter: brightness(30%); /* darken image */
-}
+    /* Button Glow Pulse */
+    .join-btn {
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      border: none;
+      color: #ababab;
+      font-weight: bold;
+      padding: 12px 30px;
+      border-radius: 50px;
+      box-shadow: 0 0 20px rgba(255,215,0,0.6);
+      transition: all 0.3s ease;
+      animation: pulseGlow 2s infinite;
+    }
 
-.img-overlay {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  padding: 8px;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: bold;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.2s ease;
-  border-radius: 0 0 8px 8px;
-}
+    .join-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(255,215,0,0.9);
+    }
 
-.img-container:hover .img-overlay {
-  opacity: 1;
-  transform: translateY(0);
-}
-
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(255,215,0,0.6); }
+      50% { box-shadow: 0 0 35px rgba(255,215,0,1); }
+    }
   </style>
+</section>
+
   <br><br>
 
 </div>
