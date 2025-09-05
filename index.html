@@ -74,22 +74,14 @@
 <!-- Hero Section -->
 <section class="hero-content">
   <div class="video-container">
-    <!-- Background Video with Mobile Fallback -->
-    <video autoplay muted loop playsinline webkit-playsinline 
-           class="hero-video" id="bgVideo"
-           poster="img/fallback-poster.jpg">
-      <source src="video/sge3.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
 
-    <!-- Fallback GIF (hidden by default, shown only if video fails) -->
-    <img src="video/sge3.gif" alt="Background GIF" 
-         class="hero-fallback" id="bgFallback">
-  </div>
+ <video autoplay muted loop class="hero-video">
+    <source src="video\sge3.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-  <!-- Dark Overlay -->
   <div class="hero-overlay"></div>
-
+ 
   <!-- Hero Content -->
   <div class="container text-white position-relative">
     <img src="img/sportingp.png" class="card-img w-100 my-5 pt-5 shadow" alt="Product 1">
@@ -160,27 +152,20 @@
   width: 100%; height: 100%;
   overflow: hidden;
   z-index: 0;
+  
 }
 .hero-video {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit:cover;
+  width: 100%;
+  height: 100%;
   z-index: -1;
-}
-.hero-fallback {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: -2; /* Behind the video */
-  display: none; /* Hidden by default */
 }
 
 .hero-content {
   position: relative;
   overflow: hidden;
-  min-height: 80vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
 }
@@ -188,7 +173,7 @@
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.9);
   z-index: 1;
 }
 .hero-content .container {
@@ -244,11 +229,7 @@
   50% { box-shadow: 0 0 20px rgba(255,255,255,0.5); }
   100% { box-shadow: 0 0 5px rgba(255,255,255,0.3); }
 }
-@media (max-width: 768px) {
-  .hero-content { min-height: 80vh; padding-top: 4rem; }
-  .hero-content p { font-size: 1.2rem; }
-  .social-btn { width: 55px; height: 55px; }
-}
+
 </style>
 
 <!-- Video Playback Script -->
