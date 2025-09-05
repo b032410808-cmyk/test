@@ -70,34 +70,31 @@
     </div>
   </div>
 </nav>
-
 <!-- Hero Section -->
 <section class="hero-content">
-  <!-- Background Video with Mobile Fallback -->
-<div class="video-container">
-    <video autoplay muted loop playsinline webkit-playsinline class="hero-video" id="bgVideo" poster="img/fallback-poster.jpg">
+  <div class="video-container">
+    <!-- Desktop Background Video -->
+    <video autoplay muted loop playsinline webkit-playsinline 
+           class="hero-video d-none d-md-block" id="bgVideo"
+           poster="img/fallback-poster.jpg">
       <source src="video/sge3.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    
-<video autoplay muted loop playsinline webkit-playsinline 
-       class="hero-video d-block d-md-none">
-  <source src="video/sge3.gif" type="video/mp4">
-  <source src="video/sge3.gif" type="image/gif">
-</video>
+
+    <!-- Mobile Background GIF -->
+    <img src="video/sge3.gif" alt="Background GIF" 
+         class="hero-video d-block d-md-none">
+  </div>
 
   <!-- Dark Overlay -->
   <div class="hero-overlay"></div>
 
   <!-- Hero Content -->
   <div class="container text-white position-relative">
-    <img src="img/sportingp.png" 
-         class="card-img w-100 my-5 pt-5 shadow" 
-         alt="Product 1">
+    <img src="img/sportingp.png" class="card-img w-100 my-5 pt-5 shadow" alt="Product 1">
 
     <div class="text-center">
-      <p class="py-3" 
-         style="font-size: 1.8rem; font-weight: bold; color: #ffffff; text-shadow: 1px 1px 2px rgba(170, 170, 170, 0.7);">
+      <p class="py-3" style="font-size: 1.8rem; font-weight: bold; color: #ffffff; text-shadow: 1px 1px 2px rgba(170, 170, 170, 0.7);">
         Sporty outfits, best quality at affordable prices.
       </p>
 
@@ -245,37 +242,6 @@
 }
 </style>
 
-<!-- Video Detection Script -->
-<script>
-// Check if video can play and handle mobile restrictions
-document.addEventListener('DOMContentLoaded', function() {
-  const video = document.getElementById('bgVideo');
-  const videoContainer = document.querySelector('.video-container');
-  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  
-  if (video && isMobile) {
-    // For mobile devices, try to play the video
-    const playPromise = video.play();
-    
-    if (playPromise !== undefined) {
-      playPromise.then(function() {
-        // Video autoplayed successfully
-        videoContainer.classList.add('video-can-play');
-      }).catch(function(error) {
-        // Autoplay was prevented, show fallback image
-        videoContainer.classList.remove('video-can-play');
-      });
-    }
-    
-    // Also try to play on user interaction as fallback
-    document.body.addEventListener('click', function() {
-      video.play().catch(function() {
-        // Still can't play, keep fallback visible
-      });
-    }, { once: true });
-  }
-});
-</script>
 
 <div style="background-color: rgba(0,0,0,1);">
 <div class="container">
