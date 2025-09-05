@@ -21,7 +21,15 @@ body {
   font-family: "Poppins", sans-serif;
   color: #333; /* dark gray text for readability */
 }
+/* ====== DROPDOWN HOVER ====== */
+.dropdown-menu .dropdown-item {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
 
+.dropdown-menu .dropdown-item:hover {
+  background-color: #8a8a8a; /* soft gray */
+  color: #000; /* black text */
+}
 /* ====== TITLES ====== */
 .title2 {
   font-size: 2rem;
@@ -34,7 +42,7 @@ body {
 /* ====== PRODUCT CARD ====== */
 .card {
   background: #fff; /* clean white */
-  border: 1px solid #ddd; /* soft gray outline */
+  border: 1px solid #ffffff; /* soft gray outline */
   border-radius: 14px;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -62,7 +70,7 @@ body {
   background: #fff;
   color: #333;
   font-weight: 600;
-  border: 1px solid #ccc; /* subtle gray border */
+  border: 1px solid #c5c4c4; /* subtle gray border */
   border-radius: 40px;
   padding: 12px 34px;
   transition: all 0.3s ease-in-out;
@@ -181,10 +189,10 @@ footer a:hover {
           <a href="#" class="btn btn-dark btn-lg w-50 whatsBtn">Buy now</a>
         </div>
         <!-- Shirt Image -->
-<img height="480" src="img/shirt/RNECK BLACK-01.jpg" 
+<img src="https://i.postimg.cc/cL1TXjFr/RNECK-BLACK-01.jpg" 
      class="card-img shirt-anim" 
      alt="Product 1" 
-     style="opacity:0.85; width: 80%; max-width: 370px;">
+     style="opacity:0.85; width: 80%;height: 80%;">
 <script>
 document.querySelectorAll(".shirt-anim").forEach(img => {
   let isTouch = "ontouchstart" in window;
