@@ -70,20 +70,21 @@
     </div>
   </div>
 </nav>
+
 <!-- Hero Section -->
 <section class="hero-content">
   <div class="video-container">
-    <!-- Desktop Background Video -->
+    <!-- Background Video with Mobile Fallback -->
     <video autoplay muted loop playsinline webkit-playsinline 
-           class="hero-video d-none d-md-block" id="bgVideo"
+           class="hero-video" id="bgVideo"
            poster="img/fallback-poster.jpg">
-      <source src="video/sge 31.mp4" type="video/mp4">
+      <source src="video/sge3.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
 
-    <!-- Mobile Background GIF -->
+    <!-- Fallback GIF (hidden by default, shown only if video fails) -->
     <img src="video/sge3.gif" alt="Background GIF" 
-         class="hero-video d-block d-md-none">
+         class="hero-fallback" id="bgFallback">
   </div>
 
   <!-- Dark Overlay -->
@@ -167,6 +168,14 @@
   object-fit: cover;
   z-index: -1;
 }
+.hero-fallback {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -2; /* Behind the video */
+  display: none; /* Hidden by default */
+}
 
 .hero-content {
   position: relative;
@@ -242,7 +251,63 @@
 }
 </style>
 
-
+<!-- Video Playback Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.getElementById('bgVideo');
+  const fallback = document.getElementById('bgFallback');
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  
+  if (video) {
+    // Ensure video properties for mobile compatibility
+    video.muted = true;
+    video.playsInline = true;
+    video.setAttribute('webkit-playsinline', '');
+    video.setAttribute('playsinline', '');
+    
+    // Try to play the video
+    const playVideo = () => {
+      const playPromise = video.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          // Video is playing successfully
+          console.log('Video is playing');
+        }).catch(error => {
+          // Video failed to play, show fallback
+          console.log('Video playback failed:', error);
+          if (isMobile) {
+            video.style.display = 'none';
+            fallback.style.display = 'block';
+          }
+        });
+      }
+    };
+    
+    // Try to play when video is ready
+    if (video.readyState >= 3) { // HAVE_FUTURE_DATA
+      playVideo();
+    } else {
+      video.addEventListener('canplay', playVideo);
+    }
+    
+    // Also try to play on user interaction (required for some mobile browsers)
+    document.addEventListener('touchstart', function() {
+      if (video.paused) {
+        playVideo();
+      }
+    }, { once: true });
+    
+    // Set a timeout to check if video is playing
+    setTimeout(() => {
+      if (video.paused && isMobile) {
+        video.style.display = 'none';
+        fallback.style.display = 'block';
+      }
+    }, 3000);
+  }
+});
+</script>
 <div style="background-color: rgba(0,0,0,1);">
 <div class="container">
   <h1 class="text-center title1 mb-3" style="font-size: 40px; color: #fff;">Catalog</h1>
