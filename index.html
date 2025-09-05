@@ -73,16 +73,9 @@
 
 <!-- Hero Section -->
 <section class="hero-content">
-
-
-<video autoplay muted loop playsinline class="hero-video">
-  <source src="sge3.mp4" type="video/mp4">
-  <source src="sge3.mov" type="video/quicktime">
-  Your browser does not support the video tag.
-</video>
-
+  <!-- Dark overlay -->
   <div class="hero-overlay"></div>
-  
+
   <!-- Hero Content -->
   <div class="container text-white position-relative">
     <img src="img/sportingp.png" class="card-img w-100 my-5 pt-5 shadow" alt="Product 1">
@@ -165,22 +158,26 @@
 
 .hero-content {
   position: relative;
-  overflow: hidden;
   min-height: 80vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  background: url("sge3.gif") no-repeat center center fixed; /* your GIF background */
+  background-size: cover;
+  overflow: hidden;
 }
+
 .hero-overlay {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8); /* 50% darkness */
   z-index: 1;
 }
+
 .hero-content .container {
   position: relative;
-  z-index: 2;
-  text-align: center;
+  z-index: 2; /* keeps text & image above overlay */
 }
 .hero-content p {
   font-size: 1.8rem;
