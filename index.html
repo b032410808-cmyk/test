@@ -21,8 +21,8 @@
   <div class="container">
     <!-- Logo -->
     <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
-      <img src="https://i.postimg.cc/mkH7rxT2/SGE-1-01.png" alt="Logo" width="120" height="67.5">
-    </a>
+  <img class="logo-animate" src="https://i.postimg.cc/mkH7rxT2/SGE-1-01.png" alt="Logo" width="120" height="67.5">
+</a>
 
     <!-- Toggler -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
@@ -77,11 +77,11 @@
   <div class="hero-overlay"></div>
 
   <!-- Hero Content -->
-  <div class="container text-white position-relative">
-    <img src="https://i.postimg.cc/tC6zq6gt/sportingp.png" class="card-img w-100 my-5 pt-5 shadow" alt="Product 1">
+  <div class="container text-dark position-relative">
+    <img src="https://i.postimg.cc/tC6zq6gt/sportingp.png" class="card-img w-100  " alt="Product 1">
 
     <div class="text-center">
-      <p class="py-3" style="font-size: 1.8rem; font-weight: bold; color: #ffffff; text-shadow: 1px 1px 2px rgba(170, 170, 170, 0.7);">
+      <p class="py-3" style="font-size: 1.8rem; font-weight: bold; color: #ffffff; text-shadow: 1px 1px 2px rgba(81, 81, 81, 0.7);">
         Sporty outfits, best quality at affordable prices.
       </p>
 
@@ -158,7 +158,7 @@
 
 .hero-content {
   position: relative;
-  min-height: 80vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,12 +167,49 @@
   overflow: hidden;
 }
 
+/* ====== HERO OVERLAY WITH STARS ====== */
 .hero-overlay {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.9); /* 50% darkness */
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgb(0, 0, 0) 0%,
+    rgb(72, 72, 72) 100%
+  );
   z-index: 1;
+  overflow: hidden; /* keeps stars inside */
+}
+
+/* ====== STAR FIELD ====== */
+.hero-overlay::before,
+.hero-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 200%; height: 200%; /* bigger so it can move */
+  background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+  opacity: 0.5;
+  animation: moveStars 60s linear infinite;
+  z-index: 0; /* behind everything */
+}
+
+.hero-overlay::after {
+  opacity: 0.3;
+  animation: moveStars 130s linear infinite reverse;
+}
+
+/* ====== STAR ANIMATION ====== */
+@keyframes moveStars {
+  from { transform: translate(0,0); }
+  to { transform: translate(-1000px,-1000px); }
+}
+
+.hero-overlay::before,
+.hero-overlay::after {
+  background-position: 0 var(--stars-shift, 0);
 }
 
 .hero-content .container {
@@ -229,10 +266,22 @@
 }
 
 </style>
+<script>
+window.addEventListener("scroll", function() {
+  let scrollY = window.scrollY;
 
+  // move stars upward based on scroll
+  document.querySelector(".hero-overlay::before");
+  
+  // apply via CSS variables
+  document.querySelector(".hero-overlay").style.setProperty(
+    "--stars-shift", `-${scrollY * 0.5}px`
+  );
+});
+</script>
 <div style="background-color: rgba(0,0,0,1);">
 <div class="container">
-  <h1 class="text-center title1 mb-3" style="font-size: 40px; color: #fff;">Catalog</h1>
+  <h1 class="text-center title1 mb-3" style="font-size: 40px; color: #fff;"><br>Catalog</h1>
 
   <div id="catalogCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-inner">
@@ -552,10 +601,34 @@
     </div>
 
     <div class="text-center my-5">
-      <a id="whatsBtn1" class="btn btn-primary btn-lg join-btn" role="button"> JOIN US NOW</a>
+      <a id="whatsBtn1" class="btn btn-primary btn-lg join-btn " role="button"> JOIN US NOW</a>
     </div>
   </div>
+<script>
+  document.getElementById('whatsBtn1').addEventListener('click', function () {
+    const phone = '60175156872';  // ✅ Full intl format, no +, no 0
+    const text  = encodeURIComponent('CUSTOM BAJU');
 
+    // Deep links
+    const appUrl = `whatsapp://send?phone=${phone}&text=${text}`;  // Native app
+    const webUrl = `https://wa.me/${phone}?text=${text}`;          // Web fallback
+
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // 📱 Try open app first
+      window.location.href = appUrl;
+
+      // ⏱️ If app not installed, fallback to web (auto redirects to app store)
+      setTimeout(() => {
+        window.location.href = webUrl;
+      }, 1200);
+    } else {
+      // 💻 Desktop → open WhatsApp Web
+      window.open(webUrl, '_blank', 'noopener');
+    }
+  });
+</script>
   <!-- CSS -->
   <style>
     /* Collaboration Section Background */
