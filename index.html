@@ -75,10 +75,10 @@
 <section class="hero-content">
   <div class="video-container">
 
- <video autoplay muted loop class="hero-video">
-    <source src="sge3.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+<video id="bgVideo" autoplay muted loop playsinline webkit-playsinline class="hero-video">
+  <source src="sge3.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
   <div class="hero-overlay"></div>
  
@@ -232,63 +232,6 @@
 
 </style>
 
-<!-- Video Playback Script -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const video = document.getElementById('bgVideo');
-  const fallback = document.getElementById('bgFallback');
-  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  
-  if (video) {
-    // Ensure video properties for mobile compatibility
-    video.muted = true;
-    video.playsInline = true;
-    video.setAttribute('webkit-playsinline', '');
-    video.setAttribute('playsinline', '');
-    
-    // Try to play the video
-    const playVideo = () => {
-      const playPromise = video.play();
-      
-      if (playPromise !== undefined) {
-        playPromise.then(() => {
-          // Video is playing successfully
-          console.log('Video is playing');
-        }).catch(error => {
-          // Video failed to play, show fallback
-          console.log('Video playback failed:', error);
-          if (isMobile) {
-            video.style.display = 'none';
-            fallback.style.display = 'block';
-          }
-        });
-      }
-    };
-    
-    // Try to play when video is ready
-    if (video.readyState >= 3) { // HAVE_FUTURE_DATA
-      playVideo();
-    } else {
-      video.addEventListener('canplay', playVideo);
-    }
-    
-    // Also try to play on user interaction (required for some mobile browsers)
-    document.addEventListener('touchstart', function() {
-      if (video.paused) {
-        playVideo();
-      }
-    }, { once: true });
-    
-    // Set a timeout to check if video is playing
-    setTimeout(() => {
-      if (video.paused && isMobile) {
-        video.style.display = 'none';
-        fallback.style.display = 'block';
-      }
-    }, 3000);
-  }
-});
-</script>
 <div style="background-color: rgba(0,0,0,1);">
 <div class="container">
   <h1 class="text-center title1 mb-3" style="font-size: 40px; color: #fff;">Catalog</h1>
