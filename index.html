@@ -79,10 +79,12 @@
       <source src="video/sge3.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <!-- Fallback image for mobile if video doesn't play -->
-  <img src="video/sge3.gif" alt="Background GIF" 
-         class="hero-video d-block d-md-none">
-  </div>
+    
+<video autoplay muted loop playsinline webkit-playsinline 
+       class="hero-video d-block d-md-none">
+  <source src="video/sge3.gif" type="video/mp4">
+  <source src="video/sge3.gif" type="image/gif">
+</video>
 
   <!-- Dark Overlay -->
   <div class="hero-overlay"></div>
