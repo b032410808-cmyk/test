@@ -21,7 +21,15 @@ body {
   font-family: "Poppins", sans-serif;
   color: #333; /* dark gray text for readability */
 }
+/* ====== DROPDOWN HOVER ====== */
+.dropdown-menu .dropdown-item {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
 
+.dropdown-menu .dropdown-item:hover {
+  background-color: #8a8a8a; /* soft gray */
+  color: #000; /* black text */
+}
 /* ====== TITLES ====== */
 .title2 {
   font-size: 2rem;
@@ -34,7 +42,7 @@ body {
 /* ====== PRODUCT CARD ====== */
 .card {
   background: #fff; /* clean white */
-  border: 1px solid #ddd; /* soft gray outline */
+  border: 1px solid #ffffff; /* soft gray outline */
   border-radius: 14px;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -62,7 +70,7 @@ body {
   background: #fff;
   color: #333;
   font-weight: 600;
-  border: 1px solid #ccc; /* subtle gray border */
+  border: 1px solid #c5c4c4; /* subtle gray border */
   border-radius: 40px;
   padding: 12px 34px;
   transition: all 0.3s ease-in-out;
@@ -131,9 +139,7 @@ footer a:hover {
         <li class="nav-item">
           <a class="nav-link" href="index.html">Home</a>
         </li>
-        <li class="nav-item">
-        <a class="nav-link" href="aboutus.html">About us</a>
-        </li>
+
         <!-- Category Dropdown -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" 
@@ -167,54 +173,26 @@ footer a:hover {
     </div>
   </div>
 </nav>
-
 <br><br><br>
 <div class="text-center my-4">
 
- <h1 class=" title2" style="font-size: 70px;">RETRO Collar</h1>
+ <h1 class=" title2" style="font-size: 65px;">RoundNeck</h1>
 </div>
 
 <div class="container my-4">
   <div class="card">
     <div class="row g-0 flex-wrap">
        
-      
-
-     <!-- Product Image -->
+      <!-- Product Image -->
       <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
         <div class="text-center my-3">
           <a href="#" class="btn btn-dark btn-lg w-50 whatsBtn">Buy now</a>
         </div>
-        <img src="https://i.postimg.cc/SQ6R7LDv/RETRO.jpg" 
-             class="card-img shirt-anim" 
-             alt="Product 1" 
-             style="opacity:0.85; width: 80%; max-width: 400px;">
-      </div>
- <!-- Shirt Image -->
-    <script>
-  document.querySelectorAll('.whatsBtn').forEach(button => {
-    button.addEventListener('click', function () {
-      const phone = '60175156872';  
-      const text  = encodeURIComponent(this.dataset.message || ' BAJU RETRO ');
-
-      // Deep links
-      const appUrl = `whatsapp://send?phone=${phone}&text=${text}`;
-      const webUrl = `https://wa.me/${phone}?text=${text}`;
-
-      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-      if (isMobile) {
-        window.location.href = appUrl;
-        setTimeout(() => {
-          window.location.href = webUrl;
-        }, 1200);
-      } else {
-        window.open(webUrl, '_blank', 'noopener');
-      }
-    });
-  });
-</script>
-
+        <!-- Shirt Image -->
+<img src="https://i.postimg.cc/cL1TXjFr/RNECK-BLACK-01.jpg" 
+     class="card-img shirt-anim" 
+     alt="Product 1" 
+     style="opacity:0.85; width: 80%;max-width: 400px;">
 <script>
 document.querySelectorAll(".shirt-anim").forEach(img => {
   let isTouch = "ontouchstart" in window;
@@ -266,24 +244,16 @@ document.querySelectorAll(".shirt-anim").forEach(img => {
 });
 </script>
 
-<style>
-  /* Shirt image animation */
-.shirt-anim {
-  transition: box-shadow 0.6s ease;
-  cursor: pointer;
-  border-radius: 12px;
-}
 
-/* Hover effect */
-.shirt-anim:hover {
-  transform: scale(1.0) rotate(4deg);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-</style>
+
+      </div>
+
       <!-- Card Body + Table -->
       <div class="col-12 col-md-8 text-center">
         <div class="card-body">
           <h5 class="card-title display-5 title2">Description</h5>
+          
+
 <style>
 /* Base table */
 .table-custom {
@@ -351,33 +321,55 @@ document.querySelectorAll(".shirt-anim").forEach(img => {
     <tbody>
       <tr>
         <td data-label="TYPE"><p style="font-size: 25px;" class="title1">EYELET</p></td>
-        <td data-label=" PRICE | MOQ">RM 40 | MOQ: 10</td>
-        <td data-label=" PRICE | MOQ">RM 38 | MOQ: 30</td>
-        <td data-label=" PRICE | MOQ">RM 35 | MOQ: 50 - 100</td>
+        <td data-label=" PRICE | MOQ">RM 35 | MOQ: 10</td>
+        <td data-label=" PRICE | MOQ">RM 33 | MOQ: 30</td>
+        <td data-label=" PRICE |  MOQ">RM 30 | MOQ: 50 - 100</td>
       </tr>
       <tr>
         <td data-label="TYPE"><p style="font-size: 25px;" class="title1">INTERLOCK</p></td>
-        <td data-label=" PRICE | MOQ">RM 40 | MOQ: 10</td>
-        <td data-label=" PRICE | MOQ">RM 38 | MOQ: 30</td>
-        <td data-label=" PRICE | MOQ">RM 35 | MOQ: 50 - 100</td>
+        <td data-label=" PRICE | MOQ">RM 35 | MOQ: 10</td>
+        <td data-label=" PRICE | MOQ">RM 33 | MOQ: 30</td>
+        <td data-label=" PRICE |  MOQ">RM 30 | MOQ: 50 - 100</td>
       </tr>
       <tr>
         <td data-label="TYPE"><p style="font-size: 25px;" class="title1">DIAMOND</p></td>
-        <td data-label=" PRICE | MOQ">RM 40 | MOQ: 10</td>
-        <td data-label=" PRICE | MOQ">RM 38 | MOQ: 30</td>
-        <td data-label=" PRICE | MOQ">RM 35 | MOQ: 50 - 100</td>
+        <td data-label=" PRICE | MOQ">RM 35 | MOQ: 10</td>
+        <td data-label=" PRICE | MOQ">RM 33 | MOQ: 30</td>
+        <td data-label=" PRICE |  MOQ">RM 30 | MOQ: 50 - 100</td>
       </tr>
       <tr>
         <td data-label="TYPE"><p style="font-size: 25px;" class="title1">LYCRA</p></td>
-        <td data-label=" PRICE | MOQ">RM 50 | MOQ: 10</td>
-        <td data-label=" PRICE | MOQ">RM 48 | MOQ: 30</td>
-        <td data-label=" PRICE | MOQ">RM 45 | MOQ: 50 - 100</td>
+        <td data-label=" PRICE | MOQ">RM 45 | MOQ: 10</td>
+        <td data-label=" PRICE | MOQ">RM 43 | MOQ: 30</td>
+        <td data-label=" PRICE | MOQ">RM 40 | MOQ: 50 - 100</td>
       </tr>
     </tbody>
   </table>
 </div>
 
+<script>
+  document.querySelectorAll('.whatsBtn').forEach(button => {
+    button.addEventListener('click', function () {
+      const phone = '60175156872';  
+      const text  = encodeURIComponent(this.dataset.message || 'BAJU ROUNDNECK ');
 
+      // Deep links
+      const appUrl = `whatsapp://send?phone=${phone}&text=${text}`;
+      const webUrl = `https://wa.me/${phone}?text=${text}`;
+
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      if (isMobile) {
+        window.location.href = appUrl;
+        setTimeout(() => {
+          window.location.href = webUrl;
+        }, 1200);
+      } else {
+        window.open(webUrl, '_blank', 'noopener');
+      }
+    });
+  });
+</script>
 
 </div>
         </div>
@@ -402,4 +394,5 @@ document.querySelectorAll(".shirt-anim").forEach(img => {
 
 <script src="script.js"></script>
 </footer>
+
 
