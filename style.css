@@ -17,7 +17,13 @@
   text-align: center;
 
 }
-
+:root {
+    --nike-black: #000;
+    --nike-white: #fff;
+    --nike-light-gray: #f5f5f5;
+    --nike-dark-gray: #757575;
+    --nike-accent: #ff5800;
+}
 .title2 {   /* section titles */
   font-family: 'BlackFuture', sans-serif;
   font-size: 2;
@@ -46,12 +52,12 @@
   bottom: -3px;
   width: 0%;
   height: 2px;
-  background: #d4af37; /* gold underline */
+  background: #ffffff; /* gold underline */
   transition: width 0.3s ease;
 }
 
 .navbar-dark .nav-link:hover {
-  color: #d4af37; /* gold text */
+  color: #ffffff; /* gold text */
 }
 
 .navbar-dark .nav-link:hover::after {
@@ -120,14 +126,14 @@ footer img:hover {
   left: -40px;
   top: 10px;
   font-size: 22px;
-  color: #d4af37;              /* royal gold */
+  color: #7c7b78;              /* royal gold */
   opacity: 0.8;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .list li:hover::before {
   transform: scale(1.5) rotate(20deg);
-  color: #b9972c;              /* deeper gold */
+  color: #6d6d6b;              /* deeper gold */
 }
 
 .list a.card {
@@ -195,7 +201,7 @@ footer img:hover {
 body {
   background: #f9f9f9; /* very light gray */
   font-family: "Poppins", sans-serif;
-  color: #333; /* dark gray text for readability */
+  color: #dedede; /* dark gray text for readability */
 }
 
 /* ====== TITLES ====== */
