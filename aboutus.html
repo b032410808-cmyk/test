@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="module" src="main.js"></script>
+  <meta charset="UTF-8">
+  <title>Apparel Shop - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.162.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.162.0/examples/js/loaders/GLTFLoader.js"></script>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" 
+     style="opacity:0.9; position: fixed; top: 0; left: 0; width: 100%; z-index: 1050;">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center fw-bold" href="index.html">
+  <img class="logo-animate" src="https://i.postimg.cc/mkH7rxT2/SGE-1-01.png" alt="Logo" width="130" height="67.5">
+</a>
+
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu -->
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="aboutus.html">About us</a>
+        </li>
+        <!-- Category Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" 
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Categories
+          </a>
+          <ul class="dropdown-menu bg-dark text-white" aria-labelledby="categoryDropdown">
+
+            <!-- Shirts -->
+            <li class="dropdown-submenu">
+              <a class="dropdown-item text-white" href="shirtcategories.html">Shirts</a>
+              <ul class="dropdown-menu bg-dark text-white ms-3">
+                <li><a class="dropdown-item text-white" href="shirt.php#muslimah">Muslimah</a></li>
+                <li><a class="dropdown-item text-white" href="shirt.php#round-neck">Round Neck</a></li>
+                <li><a class="dropdown-item text-white" href="shirt.php#vneck">V-Neck</a></li>
+                <li><a class="dropdown-item text-white" href="shirt.php#retro-collar">Retro Collar</a></li>
+                <li><a class="dropdown-item text-white" href="shirt.php#polo-collar">Polo Collar</a></li>
+              </ul>
+            </li>
+     <li><a class="dropdown-item text-white" href="pantscategories.html">Pants</a></li>
+            <li><a class="dropdown-item text-white" href="jacket.html">Jacket</a></li>
+       
+            <li><a class="dropdown-item text-white" href="sock.html">Socks</a></li>
+            <li><a class="dropdown-item text-white" href="cap.html">Cap</a></li>
+            <li><hr class="dropdown-divider bg-white"></li>
+            <li><a class="dropdown-item text-white" href="services.html">Other Services</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+ <style>
+    /* ===== HERO ===== */
+    .about-hero {
+      position: relative;
+      height: 70vh;
+      background: linear-gradient(135deg, #000000, #2c2c2c);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .about-hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      animation: fadeInDown 1.5s ease;
+    }
+    .about-hero p {
+      font-size: 1.2rem;
+      color: #cfcfcf;
+      animation: fadeInUp 2s ease;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 80px 0;
+    }
+    .section-title {
+      font-weight: 700;
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 50px;
+      color: #333;
+    }
+    .text-muted {
+      color: #666 !important;
+    }
+
+    /* ===== TEAM CARDS ===== */
+    .team-card {
+      background: #111;
+      color: white;
+      border-radius: 12px;
+      padding: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .team-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(255,255,255,0.1);
+    }
+    .team-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid #fff;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="about-hero">
+    <div>
+      <h1>About Us</h1>
+      <p>We create experiences that inspire and last forever.</p>
+    </div>
+  </div>
+
+  <!-- OUR STORY -->
+  <section class="container">
+    <h2 class="section-title">Our Story</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-8 text-center">
+        <p class="text-muted">
+          Born from a simple vision, we’ve grown into a team that values passion, creativity, and purpose.  
+          Our mission is to deliver high-quality work while staying true to our minimalist philosophy —  
+          less clutter, more meaning.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- CONTACT + MAP -->
+  <section style="background:#111; color:white;">
+    <div class="container">
+      <h2 class="section-title text-white">Contact Us</h2>
+      <div class="row align-items-center">
+        
+        <!-- Address -->
+        <div class="col-md-5 mb-4">
+          <h4>📍 Our Address</h4>
+          <p class="text-muted">
+            335, Jalan Tengku Maheran 14,  
+            Taman Tengku Maheran,  
+            06000 Jitra, Kedah
+          </p>
+        </div>
+
+        <!-- Google Map -->
+        <div class="col-md-7">
+          <div class="ratio ratio-16x9">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.5740405158326!2d100.4193734!3d6.2329716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304b59ecfaa3dde9%3A0xdb4751f0530410e!2sSHAFF%20GLOBE%20ENTERPRISE!5e0!3m2!1sen!2smy!4v1694000000000!5m2!1sen!2smy" 
+              width="100%" 
+              height="100%" 
+              style="border:0; border-radius:12px;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- OUR VALUES -->
+  <section style="background:#f7f7f7;">
+    <div class="container">
+      <h2 class="section-title">Our Values</h2>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <h4>⚡ Innovation</h4>
+          <p class="text-muted">We embrace change and push boundaries to create better solutions.</p>
+        </div>
+        <div class="col-md-4">
+          <h4>🎯 Simplicity</h4>
+          <p class="text-muted">We believe simplicity leads to clarity, efficiency, and elegance.</p>
+        </div>
+        <div class="col-md-4">
+          <h4>🤝 Integrity</h4>
+          <p class="text-muted">We build trust by staying transparent, ethical, and committed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="container">
+    <h2 class="section-title">Meet the Team</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-3">
+        <div class="team-card text-center">
+          <img src="https://i.pravatar.cc/150?img=3" alt="Team Member" class="team-img">
+          <h5>Alex Johnson</h5>
+          <p class="text-muted">Founder & CEO</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="team-card text-center">
+          <img src="https://i.pravatar.cc/150?img=5" alt="Team Member" class="team-img">
+          <h5>Sophia Lee</h5>
+          <p class="text-muted">Creative Director</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="team-card text-center">
+          <img src="https://i.pravatar.cc/150?img=8" alt="Team Member" class="team-img">
+          <h5>Michael Chen</h5>
+          <p class="text-muted">Lead Developer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer class="bg-dark text-white text-center py-3">
+  <p>&copy; SGE</p>
+  <img src="https://i.postimg.cc/tC6zq6gt/sportingp.png" class="w-50 shadow" alt="Product 1">
+  <p>
+    <a href="mailto:shaffglobe@gmail.com" target="_blank">shaffglobe@gmail.com</a>
+  </p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="script.js"></script>
+</footer>
+
+</body>
+</html>

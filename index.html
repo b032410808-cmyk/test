@@ -36,7 +36,9 @@
         <li class="nav-item">
           <a class="nav-link" href="index.html">Home</a>
         </li>
-
+         <li class="nav-item">
+          <a class="nav-link" href="aboutus.html">About us</a>
+        </li>
         <!-- Category Dropdown -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" 
@@ -70,6 +72,7 @@
     </div>
   </div>
 </nav>
+
 
 <!-- Hero Section -->
 <section class="hero-content">
@@ -160,6 +163,7 @@
   position: relative;
   min-height: 60vh;
   display: flex;
+ 
   align-items: center;
   justify-content: center;
   background: url("https://i.postimg.cc/4xMLyP1y/sge3.gif") no-repeat center center fixed; /* your GIF background */
@@ -174,11 +178,7 @@
   left: 0;
   width: 100%; 
   height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgb(0, 0, 0) 0%,
-    rgb(72, 72, 72) 100%
-  );
+ background: linear-gradient(135deg, #000000, #2c2c2c);;
   z-index: 1;
   overflow: hidden; /* keeps stars inside */
 }
@@ -190,6 +190,7 @@
   position: absolute;
   top: 0; left: 0;
   width: 200%; height: 200%; /* bigger so it can move */
+   background: linear-gradient(135deg, #000000, #2c2c2c);
   background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
   opacity: 0.5;
   animation: moveStars 60s linear infinite;
@@ -203,7 +204,7 @@
 
 /* ====== STAR ANIMATION ====== */
 @keyframes moveStars {
-  from { transform: translate(0,0); }
+  from { transform: translate(110,0); }
   to { transform: translate(-1000px,-1000px); }
 }
 
@@ -435,7 +436,7 @@ window.addEventListener("scroll", function() {
   color: #fff;
   position: relative;
   perspective: 1000px;
-  border: 2px solid rgba(255, 215, 0, 0.2) !important; /* ✅ always visible outline */
+  border: 2px solid rgba(95, 95, 95, 0.2) !important; /* ✅ always visible outline */
   box-sizing: border-box; /* ensures outline doesn't collapse */
 }
 
@@ -443,7 +444,7 @@ window.addEventListener("scroll", function() {
 .catalog-card:hover {
   transform: translateY(-8px) scale(1.05) rotateX(4deg) rotateY(-4deg);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
-  border: 2px solid #ffd700 !important; /* ✅ stronger glow on hover */
+  border: 3px solid #c6c6c4 !important; /* ✅ stronger glow on hover */
 }
 /* Shimmer animation inside cards */
 .catalog-card::after {
@@ -485,10 +486,10 @@ window.addEventListener("scroll", function() {
 
 /* Carousel card spacing */
 .carousel .carousel-item {
-  padding: 15px 0;
+  padding: 50px 0;
 }
 .carousel .card {
-  margin: 0 5px;
+  margin:  10px;
   border: none;
   background: none;
 }
