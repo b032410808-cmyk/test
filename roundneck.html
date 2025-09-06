@@ -101,6 +101,30 @@ body {
   border: 1px solid #e0e0e0;
 }
 
+/* ====== SIZE GUIDE ====== */
+.size-guide {
+  margin-top: 40px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.size-image {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+}
+
+.size-note {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
 /* ====== FOOTER ====== */
 footer {
   background: #f2f2f2;
@@ -116,6 +140,58 @@ footer a {
 
 footer a:hover {
   color: #b9972c; /* slightly darker gold on hover */
+}
+
+/* Base table */
+.table-custom {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Mobile friendly layout */
+@media (max-width: 768px) {
+  .table-custom thead {
+    display: none;
+  }
+
+  .table-custom, 
+  .table-custom tbody, 
+  .table-custom tr, 
+  .table-custom td {
+    display: block;
+    width: 100%;
+  }
+
+  .table-custom tr {
+    margin-bottom: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background: #f8f9fa;
+    padding: 8px;
+  }
+
+  .table-custom td {
+    text-align: left;
+    padding: 6px 12px;
+    border: none;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 14px;
+  }
+
+  .table-custom td:last-child {
+    border-bottom: none;
+  }
+
+  /* Label */
+  .table-custom td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: inline-block;
+    width: 50%;
+    color: #212529;
+  }
 }
 </style>
  <!-- Navbar -->
@@ -260,60 +336,6 @@ document.querySelectorAll(".shirt-anim").forEach(img => {
           <h5 class="card-title display-5 title2">Description</h5>
           
 
-<style>
-/* Base table */
-.table-custom {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-  text-align: center;
-}
-
-/* Mobile friendly layout */
-@media (max-width: 768px) {
-  .table-custom thead {
-    display: none;
-  }
-
-  .table-custom, 
-  .table-custom tbody, 
-  .table-custom tr, 
-  .table-custom td {
-    display: block;
-    width: 100%;
-  }
-
-  .table-custom tr {
-    margin-bottom: 1rem;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    background: #f8f9fa;
-    padding: 8px;
-  }
-
-  .table-custom td {
-    text-align: left;
-    padding: 6px 12px;
-    border: none;
-    border-bottom: 1px solid #dee2e6;
-    font-size: 14px;
-  }
-
-  .table-custom td:last-child {
-    border-bottom: none;
-  }
-
-  /* Label */
-  .table-custom td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    display: inline-block;
-    width: 50%;
-    color: #212529;
-  }
-}
-</style>
-
 <div class="my-3">
   <table class="table table-bordered table-striped table-custom">
     <thead class="table-dark">
@@ -351,6 +373,77 @@ document.querySelectorAll(".shirt-anim").forEach(img => {
       </tr>
     </tbody>
   </table>
+</div>
+
+<!-- Size Guide Section -->
+<div class="size-guide mt-5">
+  <h3 class="text-center mb-4 title2">Size Guide</h3>
+  
+  <div class="row justify-content-center">
+  
+    <div class="col-md-6">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped table-custom">
+          <thead class="table-dark">
+            <tr>
+              <th>Size</th>
+              <th>Chest Width (cm)</th>
+              <th>Length (cm)</th>
+              <th>Sleeve Length (cm)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Size">S</td>
+              <td data-label="Chest Width">48</td>
+              <td data-label="Length">68</td>
+              <td data-label="Sleeve Length">20</td>
+            </tr>
+            <tr>
+              <td data-label="Size">M</td>
+              <td data-label="Chest Width">50</td>
+              <td data-label="Length">70</td>
+              <td data-label="Sleeve Length">21</td>
+            </tr>
+            <tr>
+              <td data-label="Size">L</td>
+              <td data-label="Chest Width">52</td>
+              <td data-label="Length">72</td>
+              <td data-label="Sleeve Length">22</td>
+            </tr>
+            <tr>
+              <td data-label="Size">XL</td>
+              <td data-label="Chest Width">54</td>
+              <td data-label="Length">74</td>
+              <td data-label="Sleeve Length">23</td>
+            </tr>
+            <tr>
+              <td data-label="Size">XXL</td>
+              <td data-label="Chest Width">56</td>
+              <td data-label="Length">76</td>
+              <td data-label="Sleeve Length">24</td>
+            </tr>
+            <tr>
+              <td data-label="Size">3XL</td>
+              <td data-label="Chest Width">58</td>
+              <td data-label="Length">78</td>
+              <td data-label="Sleeve Length">25</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <div class="size-note">
+    <h5>How to Measure:</h5>
+    <ul class="mb-0">
+      <li><strong>Chest Width:</strong> Measure across the chest from seam to seam (laid flat)</li>
+      <li><strong>Length:</strong> Measure from the highest point of the shoulder to the bottom hem</li>
+      <li><strong>Sleeve Length:</strong> Measure from the shoulder seam to the end of the cuff</li>
+    </ul>
+    <p class="mt-2 mb-0"><strong>Note:</strong> All measurements are in centimeters. Slight variations may occur (±2cm).</p>
+  </div>
 </div>
 
 <script>
@@ -400,5 +493,3 @@ document.querySelectorAll(".shirt-anim").forEach(img => {
 
 <script src="script.js"></script>
 </footer>
-
-
